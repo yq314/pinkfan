@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /u/
+Allow: /
+Sitemap: http://pinkfan.net/sitemap.xml

@@ -1,0 +1,66 @@
+<div id="main" class="fn-left">
+    <div class="goods-info">
+        <h2>{$data.name}</h2>
+        <div class="goods-pic">
+            <a href="/u/g/id/{$data.id}" target="_blank"><img src="__SAE_DOMAIN__{$data.img|getThumbPic=470}" alt="{$data.name}" title="{$data.name}" /></a>
+        </div>
+        <div class="goods-act fn-clear">
+            <div class="like-ok">您喜欢了这个宝贝</div>
+            <div class="act-box fn-left">
+                <a href="javascript:void(0);" title="喜欢这个宝贝" class="like-img fn-left" data="{$data.id}">喜欢</a>
+                <span class="like-count fn-left" data="{$data.like_count}">{$data.like_count}</span>
+            </div>
+            <div class="act-box fn-left">
+                <a target="_blank" href="/u/g/id/{$data.id}" title="去购买这个宝贝" class="buy-img fn-left">购买</a>
+                <span class="price fn-left">&yen;{$data.price}<i></i></span>
+            </div>
+            <div class="act-box share fn-right">
+                <!-- JiaThis Button BEGIN -->
+                <div id="ckepop">
+                    <a href="http://www.jiathis.com/share?uid=1542424" title="分享给好友" class="jiathis jiathis_txt" target="_blank">分享</a>
+                </div>
+                <!-- JiaThis Button END -->
+            </div>
+        </div>
+        <div class="comment">
+            <h3>七嘴八舌</h3>
+            <div id="pinglunla_here"></div><a href="http://pinglun.la/" id="logo-pinglunla">评论啦</a>
+        </div>
+    </div>
+</div>
+<div id="aside" class="fn-right">
+    <div class="block">
+        <div class="fn-clear">
+            <div style="margin-bottom: 5px;">
+                <h3 class="seller">{$data.shop_name}</h3>
+            </div>
+            <div class="fn-left">
+                掌柜：<a target="_blank" title="{$data.shop_name}" href="/u/s/id/{$data.shop_id}">{$data.shop_seller}</a>
+            </div>
+            <div class="fn-right">
+                信用：<div class="shop-level shop-level-{$data.shop_credit}">卖家信用</div>
+            </div>
+        </div>
+        <div class="fn-clear">
+            <foreach name="goodsFromSameShop" item="row">
+                <div class="window fn-left <if condition='$key%2==1'>no-rm</if>">
+                    <a href="/goods/{$row.id}" title="{$row.name}">
+                        <img alt="{$row.name}" src="__SAE_DOMAIN__{$row.img|getThumbPic=210}" width="135" />
+                    </a>
+                </div>
+            </foreach>
+        </div>
+    </div>
+    <div class="block">
+        <h3>同类宝贝</h3>
+        <div class="fn-clear">
+            <foreach name="goodsFromSameCate" item="row">
+                <div class="window fn-left <if condition='$key%2==1'>no-rm</if>">
+                    <a href="/goods/{$row.id}" title="{$row.name}">
+                        <img alt="{$row.name}" src="__SAE_DOMAIN__{$row.img|getThumbPic=210}" width="135" />
+                    </a>
+                </div>
+            </foreach>
+        </div>
+    </div>
+</div>

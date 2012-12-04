@@ -1,0 +1,29 @@
+{__NOLAYOUT__}
+<foreach name="data" item="row">
+<div class="goods fn-left">
+    <div class="goods-pic" style="height:{$row.img_height}px;">
+        <a href="/goods/{$row.id}" title="{$row.name}" target="_blank">
+            <img src="__SAE_DOMAIN__{$row.img|getThumbPic=210}" title="{$row.name}" alt="{$row.name}" height="{$row.img_height}" />
+        </a>
+        <span class="price">&yen;{$row.price}</span>
+        <a href="javascript:void(0)" title="喜欢这个宝贝" class="like-img" data="{$row.id}">喜欢</a>
+        <span class="like-ok">您喜欢了这个宝贝</span>
+    </div>
+    <div class="goods-title">
+        {$row.name}
+    </div>
+    <div class="goods-stat fn-clear">
+        <a data="{$row.id}" href="javascript:void(0);" title="喜欢这个宝贝" class="fn-left like-num <gt name='row.like_count' value='0'>like-num-on</gt>">
+            喜欢：<em class="like-count" data="{$row.like_count}">{$row.like_count}</em>
+        </a>
+        <i class="addlike">+1</i>
+<!--        <a href="/goods/{$row.id}" title="查看评论" target="_blank" class="fn-right pll_comment_count_tag">
+            评论：<em class="comment-count">0</em>
+        </a>-->
+    </div>
+    <div class="goods-from fn-clear">
+        <a class="fn-left seller" href="/u/s/id/{$row.shop_id}" title="{$row.shop_name}" target="_blank">{$row.shop_seller}</a>
+        <span class="fn-right shop-level shop-level-{$row.shop_credit}" title="卖家信用">卖家信用</span>
+    </div>
+</div>
+</foreach>

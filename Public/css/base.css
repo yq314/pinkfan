@@ -1,0 +1,398 @@
+@charset "utf-8";
+
+/*
+	@名称: base
+	@功能: 重设浏览器默认样式
+*/
+
+/* 防止用户自定义背景颜色对网页的影响，添加让用户可以自定义字体 */
+html{
+	color:#000;
+	-webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+	margin:0;padding:0;
+}
+
+/* 重设 HTML5 标签, IE 需要在 js 中 createElement(TAG) */
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+    display:block;
+}
+
+/* HTML5 媒体文件跟 img 保持一致 */
+audio,canvas,video {
+    display: inline-block;*display: inline;*zoom: 1;
+}
+
+/* 要注意表单元素并不继承父级 font 的问题 */
+body,button,input,select,textarea{
+	font:12px/1.5 tahoma,arial,\5b8b\4f53;
+}
+input,select,textarea{
+	font-size:100%;
+}
+
+/* 去掉各Table  cell 的边距并让其边重合 */
+table{
+	border-collapse:collapse;border-spacing:0;
+}
+
+/* IE bug fixed: th 不继承 text-align*/
+th{
+	text-align:inherit;
+}
+
+/* 去除默认边框 */
+fieldset,img{
+	border:0;
+}
+
+/* ie6 7 8(q) bug 显示为行内表现 */
+iframe{
+	display:block;
+}
+
+/* 去掉 firefox 下此元素的边框 */
+abbr,acronym{
+	border:0;font-variant:normal;
+}
+
+/* 一致的 del 样式 */
+del {
+	text-decoration:line-through;
+}
+
+address,caption,cite,code,dfn,em,th,var {
+	font-style:normal;
+	font-weight:500;
+}
+
+/* 去掉列表前的标识, li 会继承 */
+ol,ul {
+	list-style:none;
+}
+
+/* 对齐是排版最重要的因素, 别让什么都居中 */
+caption,th {
+	text-align:left;
+}
+
+/* 来自yahoo, 让标题都自定义, 适应多个系统应用 */
+h1,h2,h3,h4,h5,h6 {
+	font-size:100%;
+	font-weight:500;
+}
+
+q:before,q:after {
+	content:'';
+}
+
+/* 统一上标和下标 */
+sub, sup {
+    font-size: 75%; line-height: 0; position: relative; vertical-align: baseline;
+}
+sup {top: -0.5em;}
+sub {bottom: -0.25em;}
+
+
+
+/* 让链接在 hover 状态下显示下划线 */
+a:hover {
+	text-decoration:underline;
+}
+
+/* 默认不显示下划线，保持页面简洁 */
+ins,a {
+	text-decoration:none;
+}
+
+/* 清理浮动 */
+.fn-clear:after {
+	visibility:hidden;
+	display:block;
+	font-size:0;
+	content:" ";
+	clear:both;
+	height:0;
+}
+.fn-clear {
+	zoom:1; /* for IE6 IE7 */
+}
+
+/* 隐藏, 通常用来与 JS 配合 */
+body .fn-hide {
+	display:none;
+}
+
+/* 设置内联, 减少浮动带来的bug */
+.fn-left,.fn-right {
+	display:inline;
+}
+.fn-left {
+	float:left;
+}
+.fn-right {
+	float:right;
+}
+
+body{
+    color:#333;
+    background: url(../img/bg.png) repeat;
+    font-family: Arial;
+}
+
+a{
+    color:#333;
+}
+
+.w960{
+    width: 960px;
+    margin: 0 auto;
+}
+
+.header{
+    width: 100%;
+    height: 118px;
+    margin-bottom: 20px;
+}
+
+.header .m-header{
+    height: 80px;
+    background: url(../img/header_bg.png) repeat;
+}
+.header .logo{
+    float: left;
+    padding: 16px 0;
+}
+.header .logo a{
+    display: block;
+    width: 144px;
+    height: 48px;
+    background: url(../img/logo.png) no-repeat;
+    text-indent: -999px;
+    overflow: hidden;
+}
+.header .m-nav{
+    width: 100%;
+    height: 32px;
+    padding-top: 6px;
+    background: url(../img/bar_bg.png) repeat-x;
+    z-index: 98;
+    opacity: 0.9;
+}
+
+.header .channel li{
+    float: left;
+    height: 16px;
+    line-height: 16px;
+    margin-top: 4px;
+    padding: 0 6px;
+}
+.header .channel li a{
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+.header .channel li.small{
+    margin-top: 5px;
+}
+.header .channel li.small a{
+    font-size: 12px;
+    font-weight: normal;
+}
+.header .channel li a:hover, .header .channel li a.current{
+    color: #ff70a7;
+}
+.header .share{
+    margin-top:4px;
+}
+.header .header-s{
+    margin-top: 20px;
+}
+.header-s input{
+    float: left;
+    height: 26px;
+    width: 256px;
+    font-size: 14px;
+    padding: 3px 5px;
+    background-color: #FAFAFA;
+    border: 1px solid;
+    border-color: #C2C0C0 #CCCACA #D1CFCF;
+    border-radius: 4px 0 0 4px;
+}
+.header-s a{
+    float: left;
+    display: block;
+    height: 26px;
+    width: 26px;
+    border: 1px solid;
+    border-color: #C2C0C0 #CCCACA #D1CFCF;
+    border-radius: 0 4px 4px 0;
+    background: url(../img/s.png) no-repeat 3px 3px #FCFCFC;
+    margin-left: -1px;
+    padding: 3px;
+}
+
+#container{
+    min-height: 600px;
+    margin: 0 auto;
+}
+
+.totop {
+    width: 40px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 12px;
+    overflow: hidden;
+}
+
+.totop a {
+    display: block;
+    width: 40px;
+    height: 35px;
+    background: url(../img/totop.gif) no-repeat;
+    text-indent: -999px;
+    text-decoration: none;
+}
+
+.totop a:hover{
+    background-position: 0 -35px;
+}
+
+.gray{
+    color: #ccc;
+}
+
+.nav-fixed{
+    position: fixed;
+    top: 0;
+}
+
+.footer{
+    border-top: 1px solid #E8E7E3;
+    height: 80px;
+    background: #F9F9F4;
+    padding: 10px 0;
+    margin-top: 10px;
+}
+.footer .links{
+    margin-top: 10px;
+}
+.footer .links h3{
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.footer .links a{
+    margin-right: 10px;
+}
+.footer a img{
+    vertical-align: middle;
+}
+a.weibo{
+    background: url(../img/weibo.png) no-repeat;
+    padding-left: 18px;
+    margin-left: 2px;
+}
+.gift{
+    background: #f9f9f4;
+    border-radius: 5px;
+    margin: 16px 50px;
+    padding: 6px 10px;
+    width: 380px;
+    color: #666;
+}
+.shop-level{
+    display: inline-block;
+    height: 16px;
+    width: 0;
+    text-indent: -999em;
+    overflow: hidden;
+    background: url(../img/rank_bg.gif) repeat-x scroll -999px -999px;
+}
+.shop-level-1{
+    background-position: 0 0;
+    width: 17px;
+}
+.shop-level-2{
+    background-position: 0 0;
+    width: 34px;
+}
+.shop-level-3{
+    background-position: 0 0;
+    width: 51px;
+}
+.shop-level-4{
+    background-position: 0 0;
+    width: 68px;
+}
+.shop-level-5{
+    background-position: 0 0;
+    width: 85px;
+}
+.shop-level-6{
+    background-position: 0 -32px;
+    width: 17px;
+}
+.shop-level-7{
+    background-position: 0 -32px;
+    width: 34px;
+}
+.shop-level-8{
+    background-position: 0 -32px;
+    width: 51px;
+}
+.shop-level-9{
+    background-position: 0 -32px;
+    width: 68px;
+}
+.shop-level-10{
+    background-position: 0 -32px;
+    width: 85px;
+}
+.shop-level-11{
+    background-position: 0 -64px;
+    width: 17px;
+}
+.shop-level-12{
+    background-position: 0 -64px;
+    width: 34px;
+}
+.shop-level-13{
+    background-position: 0 -64px;
+    width: 51px;
+}
+.shop-level-14{
+    background-position: 0 -64px;
+    width: 68px;
+}
+.shop-level-15{
+    background-position: 0 -64px;
+    width: 85px;
+}
+.shop-level-16{
+    background-position: 0 -80px;
+    width: 17px;
+}
+.shop-level-17{
+    background-position: 0 -80px;
+    width: 34px;
+}
+.shop-level-18{
+    background-position: 0 -80px;
+    width: 51px;
+}
+.shop-level-19{
+    background-position: 0 -80px;
+    width: 68px;
+}
+.shop-level-20{
+    background-position: 0 -80px;
+    width: 85px;
+}
+.seller{
+    background: url(../img/store.png) no-repeat left center;
+    padding-left: 20px;
+}

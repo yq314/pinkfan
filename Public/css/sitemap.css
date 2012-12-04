@@ -1,0 +1,16 @@
+#sitemap{
+    background: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 6px;
+    min-height: 600px;
+}
+#sitemap li{
+    float: left;
+    width: 150px;
+    margin: 4px;
+}
+#sitemap li a{
+    display: block;
+    font-family: Courier;
+}

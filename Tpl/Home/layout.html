@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{$title}</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="keywords" content="{$keywords}" />
+        <meta name="description" content="{$description}" />
+        <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+        <meta name="copyright" content="pinkfan.net" />
+        <meta property="qc:admins" content="376622610636166654" />
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__css/base.css?201205051810.css" />
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+        <!--[if IE 6]>
+            <script type="text/javascript" src="http://letskillie6.googlecode.com/svn/trunk/letskillie6.zh_CN.pack.js"></script>
+        <![endif]-->
+        <foreach name="header" item="load">
+            <switch name="load.type" >
+                <case value="js" break="1">
+                    <script type="text/javascript" src="{$load.file}"></script>
+                </case>
+                <case value="css" break="1">
+                    <link rel="stylesheet" type="text/css" href="{$load.file}" />
+                </case>
+                <default />
+            </switch>
+        </foreach>
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-12366421-4']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    </head>
+    <body>
+        <div class="header">
+            <div class="m-header" id="m-header">
+                <div class="w960 fn-clear">
+                    <h1 class="logo">
+                        <a href="/">粉红控</a>
+                    </h1>
+                    <div class="fn-left gift">
+                        <p>我爱你，恰如你爱粉红色</p>
+                        <p>谨以本站献给嗜粉骚年 <a class="weibo" rel="external nofollow" href="http://weibo.com/quasy" target="_blank">夸西要逆袭</a>，好基友一被纸 =_=</p>
+                    </div>
+                    <div class="header-s fn-right fn-clear">
+                        <form id="search_form" method="get" action="/" class="text">
+                            <input type="text" name="q" id="q" autocomplete="off" placeholder="搜索你喜欢的粉红宝贝" value="{$filter.q}" />
+                            <a id="search_btn" href="javascript:void(0);"></a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="m-nav" id="m-nav">
+                <div class="w960 fn-clear">
+                    <ul class="channel fn-left fn-clear">
+                        <li>
+                            <a href="/" <if condition="empty($filter['cat'])">class="current"</if>>全部</a>
+                        </li>
+                        <foreach name="cates" item="cate">
+                            <li class="small">
+                                <a href="/?cat={$key}" <if condition="$filter['cat'] eq $key">class="current"</if>>{$cate}</a>
+                            </li>
+                        </foreach>
+                    </ul>
+                    <div class="share fn-right">
+                        <!-- JiaThis Button BEGIN -->
+                        <div id="ckepop">
+                            <span class="jiathis_txt">召唤粉红控：</span>
+                            <a class="jiathis_button_qzone"></a>
+                            <a class="jiathis_button_tsina"></a>
+                            <a class="jiathis_button_tqq"></a>
+                            <a class="jiathis_button_renren"></a>
+                            <a class="jiathis_button_kaixin001"></a>
+                            <a class="jiathis_button_douban"></a>
+                            <a class="jiathis_button_mogujie"></a>
+                            <a class="jiathis_button_meilishuo"></a>
+                            <a class="jiathis_button_duitang"></a>
+                            <a class="jiathis_counter_style"></a>
+                        </div>
+                        <!-- JiaThis Button END -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="wrap">
+            <div id="container" class="w960 fn-clear">
+            {__CONTENT__}
+            </div>
+        </div>
+        <div class="footer" id="footer">
+            <div class="w960 fn-clear">
+                <div class="fn-right">
+                    <a href="http://sae.sina.com.cn" target="_blank"><img src="http://static.sae.sina.com.cn/image/poweredby/120X33_transparent.gif" title="Powered by Sina App Engine"></a>
+                </div>
+                <div>
+                    Copyright &copy; 2012-{:date('Y')} <a class="weibo" rel="external nofollow" title="作者的微博" href="http://weibo.com/lurenfake" target="_blank">青叔要逆袭</a> All rights reserved.
+                    &nbsp;&nbsp;<a href="/sitemap/">站点地图</a>
+                </div>
+                <div class="links">
+                    <h3>友情链接</h3>
+                    <div>
+                        <a href="http://www.lurenfake.com" target="_blank"><img src="http://www.google.com/s2/favicons?domain=www.lurenfake.com" /> 路人假志</a>
+                        <a rel="external nofollow" href="http://www.xinyuancun.com/" target="_blank"><img src="http://www.google.com/s2/favicons?domain=www.xinyuancun.com" /> 心愿村</a>
+                        <a rel="external nofollow" href="http://www.guang.com/" target="_blank"><img src="http://www.google.com/s2/favicons?domain=www.guang.com" /> 逛，发现喜欢</a>
+                        <a rel="external nofollow" href="http://www.mogujie.com/" target="_blank"><img src="http://www.google.com/s2/favicons?domain=www.mogujie.com" /> 蘑菇街</a>
+                        <a rel="external nofollow" href="http://www.huaban.com/" target="_blank"><img src="http://www.google.com/s2/favicons?domain=www.huaban.com" /> 花瓣</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__js/script.js"></script>
+        <foreach name="footer" item="load">
+            <switch name="load.type" >
+                <case value="js" break="1">
+                    <script type="text/javascript" src="{$load.file}"></script>
+                </case>
+                <case value="css" break="1">
+                    <link rel="stylesheet" type="text/css" href="{$load.file}" />
+                </case>
+                <default />
+            </switch>
+        </foreach>
+        <script type="text/javascript">
+        var jiathis_config = {
+            appkey : {
+                "tsina":"1380197105",
+                "tqq":"801127598"
+            }<if condition="strtolower(MODULE_NAME)=='index' && strtolower(ACTION_NAME)=='index'">,
+            title : '粉红控是一个收集所有粉红色商品的网站，与全世界的粉红控们一起发现喜欢的宝贝，购买中意的粉色商品',
+            url : 'http://pinkfan.net',
+            pic : 'http://pinkfan.sinaapp.com/Public/img/snapshot.png'
+            </if>
+        }
+        </script>
+        <script type="text/javascript" src="http://v2.jiathis.com/code/jia.js?uid=1542424" charset="utf-8"></script>
+    </body>
+</html>

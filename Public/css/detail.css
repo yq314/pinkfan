@@ -1,0 +1,118 @@
+#main {
+    width:600px;
+    margin-bottom: 10px;
+}
+#main .goods-info{
+    padding: 25px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+.goods-info h2 {
+    line-height: 1;
+    padding-bottom: 10px;
+    font-size: 16px;
+    border-bottom: 1px dotted #D1D1D1;
+    font-weight: bold;
+}
+.goods-info .goods-pic{
+    width: 470px;
+    overflow: hidden;
+    text-align: center;
+    margin: 15px auto 0;
+}
+.goods-info .goods-act{
+    height: 48px;
+    margin-top: 20px;
+    background: #F9F9F4;
+    position: relative;
+}
+.like-ok{
+    position: absolute;
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(34,25,25,0.2);
+    padding: 5px;
+    left: 10px;
+    top: -25px;
+    display: none;
+}
+.act-box{
+    padding: 10px;
+    width: 200px;
+}
+.act-box .like-img, .act-box .buy-img,.act-box .jiathis_txt{
+    background: url(../img/btn.png) no-repeat;
+    display: block;
+    float: left;
+    height: 28px;
+    overflow: hidden;
+    text-indent: -999em;
+    width: 66px;
+}
+.act-box .like-img{
+    background-position: 0 -29px;
+}
+.act-box.share{
+    width:66px;
+}
+.act-box .jiathis_txt{
+    background-position: 0 -58px;
+}
+.act-box .like-count, .act-box .price{
+    display: block;
+    height: 28px;
+    line-height: 28px;
+    font-weight: bold;
+    font-size: 14px;
+    margin-left: 15px;
+}
+.act-box .like-count{
+    color: #FF579A;
+}
+.act-box .price{
+    color: #F57700;
+}
+.goods-info .comment{
+    margin-top: 25px;
+}
+.comment h3{
+    line-height: 1.1;
+    padding-bottom: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border-bottom: 1px dotted #D1D1D1;
+}
+#pll_community{
+    display: none !important;
+}
+#logo-pinglunla,#pll_power_text{
+    display: none;
+}
+
+#aside{
+    width: 320px;
+}
+#aside .block{
+    width: 280px;
+    margin-bottom: 20px;
+    padding: 20px;
+    background: #fff;
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+.block h3{
+    font-weight: bold;
+    font-size: 14px;
+}
+.block .window{
+    width: 135px;
+    height: 135px;
+    margin: 10px 10px 0 0;
+    overflow: hidden;
+    position: relative;
+}
+.block .no-rm{
+    margin-right: 0;
+}

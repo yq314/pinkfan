@@ -1,0 +1,83 @@
+<div class="sub-nav fn-clear">
+    <h2><empty name="cat_name">{$filter.q}<else/>{$cat_name}</empty></h2>
+    <div class="fn-left filters">
+        <span class="label">排序：</span>
+        <ul>
+            <li class="filter-sort-l">
+                <a title="按更新时间排序" href="?cat={$filter.cat}&sort=0&price={$filter.price}&q={$filter.q}" <if condition="empty($filter['sort'])">class="on"</if>>
+                    <i></i>
+                    <span>最新</span>
+                </a>
+            </li>
+            <li class="filter-sort-r">
+                <a title="按喜欢次数排序" href="?cat={$filter.cat}&sort=1&price={$filter.price}&q={$filter.q}" <if condition="$filter['sort'] eq 1">class="on"</if>>
+                    <span>最热</span>
+                    <i></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="fn-left filters">
+        <span class="label">价格：</span>
+        <ul>
+            <li class="filter-sort-l">
+                <a href="?cat={$filter.cat}&sort={$filter.sort}&price=0&q={$filter.q}" <if condition="empty($filter['price'])">class="on"</if>>
+                    <i></i>
+                    <span>全部</span>
+                </a>
+            </li>
+            <li class="filter-sort-c">
+                <a title="小于100元的宝贝" href="?cat={$filter.cat}&sort={$filter.sort}&price=1&q={$filter.q}" <if condition="$filter['price'] eq 1">class="on"</if>>
+                    <span>&yen;100</span>
+                </a>
+            </li>
+            <li class="filter-sort-c">
+                <a title="小于200元的宝贝" href="?cat={$filter.cat}&sort={$filter.sort}&price=2&q={$filter.q}" <if condition="$filter['price'] eq 2">class="on"</if>>
+                    <span>&yen;200</span>
+                </a>
+            </li>
+            <li class="filter-sort-c">
+                <a title="小于500元的宝贝" href="?cat={$filter.cat}&sort={$filter.sort}&price=3&q={$filter.q}" <if condition="$filter['price'] eq 3">class="on"</if>>
+                    <span>&yen;500</span>
+                </a>
+            </li>
+            <li class="filter-sort-c">
+                <a title="小于1000元的宝贝" href="?cat={$filter.cat}&sort={$filter.sort}&price=4&q={$filter.q}" <if condition="$filter['price'] eq 4">class="on"</if>>
+                    <span>&yen;1000</span>
+                </a>
+            </li>
+            <li class="filter-sort-c">
+                <a title="小于2000元的宝贝" href="?cat={$filter.cat}&sort={$filter.sort}&price=5&q={$filter.q}" <if condition="$filter['price'] eq 5">class="on"</if>>
+                    <span>&yen;2000</span>
+                </a>
+            </li>
+            <li class="filter-sort-r">
+                <a title="大于2000元的宝贝" href="?cat={$filter.cat}&sort={$filter.sort}&price=6&q={$filter.q}" <if condition="$filter['price'] eq 6">class="on"</if>>
+                    <span>更高</span>
+                    <i></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="fn-right update-time">
+        <span style="margin-right: 15px;">{$goods_count} 件宝贝</span>
+        <span class="label">最后更新于：</span>{$update_date}
+    </div>
+</div>
+<div id="water-fall" class="water-fall fn-clear">{$init_data}</div>
+<empty name="init_data">
+    <div class="loading">咦...糟糕！<br />这里连朵浮云都木有</div>
+</empty>
+<div id="goods-loading" class="loading" style="display:none;"><p><img src="__SAE_DOMAIN__img/loading.gif" /></p>精彩内容努力加载中</div>
+<div id="page-box" class="page-box fn-clear">
+    <div id="page-nav"></div>
+</div>
+<script type="text/javascript">
+    var goodsPage = {
+        total : {$goods_count|default=0},
+        curPage : {$cur_page|default=1},
+        subPage : 2,
+        query : "?{$filter|http_build_query}",
+        loading : <empty name="init_data">true<else />false</empty>
+    }
+</script>

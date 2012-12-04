@@ -1,0 +1,12 @@
+<div id="sitemap">
+    <ul>
+        <foreach name="list" item="data">
+            <li>
+                <a target="_blank" href="/goods/{$data.id}" title="{$data.name}">{$data.name|substr_utf8=0,11}</a>
+            </li>
+        </foreach>
+    </ul>
+    <div>
+        {$pagenav}
+    </div>
+</div>
