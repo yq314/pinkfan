@@ -1,0 +1,39 @@
+.shopbox .block{
+	width: 280px;
+	margin: 0 15px 20px 0;
+	padding: 15px;
+	background: white;
+	overflow: hidden;
+	border-radius: 5px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+.shopbox .last{
+	margin-right: 0;
+}
+.shopbox .seller{
+	width: 260px;
+	height: 18px;
+	margin-bottom: 4px;
+	overflow: hidden;
+	font-weight: bold;
+}
+.page{
+	margin-bottom: 15px;
+}
+.page a{
+	height:18px;
+	line-height:18px;
+	padding: 5px 8px;
+	margin-left: 8px;
+	border: 1px solid #DEDEDE;
+	background: white;
+	overflow: hidden;
+	border-radius: 5px;
+	white-space: nowrap;
+	color: #FF70A7;
+	text-decoration: none;
+}
+.page a:hover{
+	color: #fff;
+	background: #ff70a7;
+}

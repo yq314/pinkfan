@@ -28,7 +28,8 @@ function sae_auto_load($class){
     'SaeMysql'=>SAE_PATH.'SaeImit/SaeMysql.class.php',
     'ImitSqlite'=>SAE_PATH.'SaeImit/ImitSqlite.class.php',
      'SaeFetchurl'=>SAE_PATH.'SaeImit/SaeFetchurl.class.php',
-     'SaeImage'=>SAE_PATH.'SaeImit/SaeImage.class.php'
+     'SaeImage'=>SAE_PATH.'SaeImit/SaeImage.class.php',
+   	'SaeFTS'=>SAE_PATH.'SaeImit/SaeFTS.class.php'
     );
     if(isset($files[$class]))
         require $files[$class];

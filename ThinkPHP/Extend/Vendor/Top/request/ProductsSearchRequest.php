@@ -3,7 +3,7 @@
  * TOP API: taobao.products.search request
  * 
  * @author auto create
- * @since 1.0, 2012-04-01 12:30:23
+ * @since 1.0, 2012-12-07 16:40:13
  */
 class ProductsSearchRequest
 {
@@ -34,7 +34,7 @@ class ProductsSearchRequest
 	private $props;
 	
 	/** 
-	 * 搜索的关键词是用来搜索产品的title以及关键属性值的名称.如:"优衣库 1234",这种用来表示查询优衣库这个品牌下的货号为1234的产品;　注:q,cid和props至少传入一个
+	 * 搜索的关键词是用来搜索产品的title.　注:q,cid和props至少传入一个
 	 **/
 	private $q;
 	
@@ -154,5 +154,10 @@ class ProductsSearchRequest
 		RequestCheckUtil::checkNotNull($this->fields,"fields");
 		RequestCheckUtil::checkMaxLength($this->status,20,"status");
 		RequestCheckUtil::checkMinValue($this->verticalMarket,0,"verticalMarket");
+	}
+	
+	public function putOtherTextParam($key, $value) {
+		$this->apiParas[$key] = $value;
+		$this->$key = $value;
 	}
 }

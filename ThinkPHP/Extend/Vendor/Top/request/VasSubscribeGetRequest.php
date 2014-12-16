@@ -3,7 +3,7 @@
  * TOP API: taobao.vas.subscribe.get request
  * 
  * @author auto create
- * @since 1.0, 2012-04-01 12:30:23
+ * @since 1.0, 2012-12-07 16:40:13
  */
 class VasSubscribeGetRequest
 {
@@ -56,5 +56,10 @@ class VasSubscribeGetRequest
 		
 		RequestCheckUtil::checkNotNull($this->articleCode,"articleCode");
 		RequestCheckUtil::checkNotNull($this->nick,"nick");
+	}
+	
+	public function putOtherTextParam($key, $value) {
+		$this->apiParas[$key] = $value;
+		$this->$key = $value;
 	}
 }

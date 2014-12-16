@@ -3,7 +3,7 @@
  * TOP API: taobao.vas.order.search request
  * 
  * @author auto create
- * @since 1.0, 2012-04-01 12:30:23
+ * @since 1.0, 2012-12-07 16:40:13
  */
 class VasOrderSearchRequest
 {
@@ -184,5 +184,10 @@ class VasOrderSearchRequest
 		
 		RequestCheckUtil::checkNotNull($this->articleCode,"articleCode");
 		RequestCheckUtil::checkMaxValue($this->pageSize,200,"pageSize");
+	}
+	
+	public function putOtherTextParam($key, $value) {
+		$this->apiParas[$key] = $value;
+		$this->$key = $value;
 	}
 }

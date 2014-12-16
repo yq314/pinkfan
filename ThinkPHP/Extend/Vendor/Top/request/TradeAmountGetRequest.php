@@ -3,7 +3,7 @@
  * TOP API: taobao.trade.amount.get request
  * 
  * @author auto create
- * @since 1.0, 2012-04-01 12:30:23
+ * @since 1.0, 2012-12-07 16:40:13
  */
 class TradeAmountGetRequest
 {
@@ -64,5 +64,10 @@ order_amounts.sku_properties_name,order_amounts.sku_id,order_amounts.num,order_a
 		RequestCheckUtil::checkNotNull($this->tid,"tid");
 		RequestCheckUtil::checkMaxValue($this->tid,9223372036854775807,"tid");
 		RequestCheckUtil::checkMinValue($this->tid,-9223372036854775808,"tid");
+	}
+	
+	public function putOtherTextParam($key, $value) {
+		$this->apiParas[$key] = $value;
+		$this->$key = $value;
 	}
 }

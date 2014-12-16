@@ -1,6 +1,5 @@
 <?php
 
-//获取蜘蛛爬虫名或防采集
 function isSpider(){
     $bots = array(
                     'Google'    => 'googlebot',
@@ -10,7 +9,9 @@ function isSpider(){
                     'Msn'        => 'msnbot',
                     'Altavista'    => 'scooter ',
                     'Sogou'        => 'sogou spider',
-                    'Yodao'        => 'yodaobot'
+                    'Yodao'        => 'yodaobot',
+    				'Bing'			=>	'bingbot',
+    				'360'		=>	'360spider'
             );
     $userAgent = strtolower($_SERVER['HTTP_USER_AGENT']);
     foreach ($bots as $k => $v){

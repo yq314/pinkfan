@@ -1,4 +1,7 @@
+User-agent: AhrefsBot
+disallow: /
+User-agent: JikeSpider
+disallow: /
 User-agent: *
 Disallow: /u/
 Allow: /
-Sitemap: http://pinkfan.net/sitemap.xml

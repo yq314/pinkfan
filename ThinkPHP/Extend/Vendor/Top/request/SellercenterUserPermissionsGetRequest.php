@@ -3,12 +3,12 @@
  * TOP API: taobao.sellercenter.user.permissions.get request
  * 
  * @author auto create
- * @since 1.0, 2012-04-01 12:30:23
+ * @since 1.0, 2012-12-07 16:40:13
  */
 class SellercenterUserPermissionsGetRequest
 {
 	/** 
-	 * 用户标识
+	 * 用户标识，次入参必须为子账号比如zhangsan:cool。如果只输入主账号zhangsan，将报错。
 	 **/
 	private $nick;
 	
@@ -39,5 +39,10 @@ class SellercenterUserPermissionsGetRequest
 	{
 		
 		RequestCheckUtil::checkNotNull($this->nick,"nick");
+	}
+	
+	public function putOtherTextParam($key, $value) {
+		$this->apiParas[$key] = $value;
+		$this->$key = $value;
 	}
 }

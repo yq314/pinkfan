@@ -3,7 +3,7 @@
  * TOP API: taobao.item.price.update request
  * 
  * @author auto create
- * @since 1.0, 2012-04-01 12:30:23
+ * @since 1.0, 2012-12-07 16:40:13
  */
 class ItemPriceUpdateRequest
 {
@@ -817,5 +817,10 @@ fee_card(话费软件代充)
 		RequestCheckUtil::checkMinValue($this->numIid,1,"numIid");
 		RequestCheckUtil::checkMaxListSize($this->sellerCids,10,"sellerCids");
 		RequestCheckUtil::checkMaxLength($this->title,60,"title");
+	}
+	
+	public function putOtherTextParam($key, $value) {
+		$this->apiParas[$key] = $value;
+		$this->$key = $value;
 	}
 }

@@ -5,5 +5,6 @@ handle:
 - compress: if ( out_header["Content-type"]=="text/javascript" ) compress
 - compress: if ( out_header["Content-type"]=="text/html" ) compress
 - compress: if ( out_header["Content-type"]=="text/plain" ) compress
-- rewrite:  if ( !is_dir() && !is_file() && path ~ "sitemap.xml" ) goto "/sitemap/google"
-- rewrite:  if(!is_dir() && !is_file() && path ~ "^(.*)$") goto "index.php/$1"
+
+- rewrite: if ( !is_dir() && !is_file() && path ~ "sitemap.xml" ) goto "/sitemap/google"
+- rewrite: if( !is_dir() && !is_file() && path ~ "^(.*)$") goto "index.php/$1"

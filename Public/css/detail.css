@@ -76,6 +76,17 @@
 .goods-info .comment{
     margin-top: 25px;
 }
+.tags{
+	font-size: 14px;
+	margin: 10px auto;
+}
+.tags span{
+	font-weight:bold;
+}
+.tags a{
+	margin-right: 5px;
+	color: #FF70A7;
+}
 .comment h3{
     line-height: 1.1;
     padding-bottom: 10px;
@@ -83,13 +94,20 @@
     font-weight: bold;
     border-bottom: 1px dotted #D1D1D1;
 }
-#pll_community{
-    display: none !important;
+.cm-title{
+	margin-bottom: 1px;
 }
-#logo-pinglunla,#pll_power_text{
-    display: none;
+.cm-content{
+	margin-bottom: 5px;
+	padding-bottom: 2px;
+	border-bottom: 1px dotted #d1d1d1;
 }
-
+.cm-nick{
+	color:#5AD;
+}
+.cm-date{
+	color: #999;
+}
 #aside{
     width: 320px;
 }

@@ -3,12 +3,12 @@
  * TOP API: taobao.traderate.add request
  * 
  * @author auto create
- * @since 1.0, 2012-04-01 12:30:23
+ * @since 1.0, 2012-12-07 16:40:13
  */
 class TraderateAddRequest
 {
 	/** 
-	 * 是否匿名,卖家评不能匿名。可选值:true(匿名),false(非匿名)。注意：输入非可选值将会自动转为false
+	 * 是否匿名,卖家评不能匿名。可选值:true(匿名),false(非匿名)。注意：如果交易订单匿名，则评价也匿名
 	 **/
 	private $anony;
 	
@@ -121,5 +121,10 @@ class TraderateAddRequest
 		RequestCheckUtil::checkNotNull($this->result,"result");
 		RequestCheckUtil::checkNotNull($this->role,"role");
 		RequestCheckUtil::checkNotNull($this->tid,"tid");
+	}
+	
+	public function putOtherTextParam($key, $value) {
+		$this->apiParas[$key] = $value;
+		$this->$key = $value;
 	}
 }

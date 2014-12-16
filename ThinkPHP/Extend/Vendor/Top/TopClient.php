@@ -16,7 +16,7 @@ class TopClient
 
 	protected $apiVersion = "2.0";
 
-	protected $sdkVersion = "top-sdk-php-20120401";
+	protected $sdkVersion = "top-sdk-php-20121207";
 
 	protected function generateSign($params)
 	{
@@ -36,12 +36,17 @@ class TopClient
 		return strtoupper(md5($stringToBeSigned));
 	}
 
-	protected function curl($url, $postFields = null)
+	public function curl($url, $postFields = null)
 	{
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $url);
 		curl_setopt($ch, CURLOPT_FAILONERROR, false);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		//https 请求
+		if(strlen($url) > 5 && strtolower(substr($url,0,5)) == "https" ) {
+			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+			curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+		}
 
 		if (is_array($postFields) && 0 < count($postFields))
 		{
@@ -51,7 +56,7 @@ class TopClient
 			{
 				if("@" != substr($v, 0, 1))//判断是不是文件上传
 				{
-					$postBodyString .= "$k=" . urlencode($v) . "&";
+					$postBodyString .= "$k=" . urlencode($v) . "&"; 
 				}
 				else//文件上传用multipart/form-data，否则用www-form-urlencoded
 				{
@@ -70,7 +75,7 @@ class TopClient
 			}
 		}
 		$reponse = curl_exec($ch);
-
+		
 		if (curl_errno($ch))
 		{
 			throw new Exception(curl_error($ch),0);
@@ -89,22 +94,22 @@ class TopClient
 
 	protected function logCommunicationError($apiName, $requestUrl, $errorCode, $responseTxt)
 	{
-//		$localIp = isset($_SERVER["SERVER_ADDR"]) ? $_SERVER["SERVER_ADDR"] : "CLI";
-//		$logger = new LtLogger;
-//		$logger->conf["log_file"] = rtrim(TOP_SDK_WORK_DIR, '\\/') . '/' . "logs/top_comm_err_" . $this->appkey . "_" . date("Y-m-d") . ".log";
-//		$logger->conf["separator"] = "^_^";
-//		$logData = array(
-//		date("Y-m-d H:i:s"),
-//		$apiName,
-//		$this->appkey,
-//		$localIp,
-//		PHP_OS,
-//		$this->sdkVersion,
-//		$requestUrl,
-//		$errorCode,
-//		str_replace("\n","",$responseTxt)
-//		);
-//		$logger->log($logData);
+// 		$localIp = isset($_SERVER["SERVER_ADDR"]) ? $_SERVER["SERVER_ADDR"] : "CLI";
+// 		$logger = new LtLogger;
+// 		$logger->conf["log_file"] = rtrim(TOP_SDK_WORK_DIR, '\\/') . '/' . "logs/top_comm_err_" . $this->appkey . "_" . date("Y-m-d") . ".log";
+// 		$logger->conf["separator"] = "^_^";
+// 		$logData = array(
+// 		date("Y-m-d H:i:s"),
+// 		$apiName,
+// 		$this->appkey,
+// 		$localIp,
+// 		PHP_OS,
+// 		$this->sdkVersion,
+// 		$requestUrl,
+// 		$errorCode,
+// 		str_replace("\n","",$responseTxt)
+// 		);
+// 		$logger->log($logData);
 	}
 
 	public function execute($request, $session = null)
@@ -193,13 +198,13 @@ class TopClient
 		//如果TOP返回了错误码，记录到业务错误日志中
 		if (isset($respObject->code))
 		{
-        var_dump($resp);
-//			$logger = new LtLogger;
-//			$logger->conf["log_file"] = rtrim(TOP_SDK_WORK_DIR, '\\/') . '/' . "logs/top_biz_err_" . $this->appkey . "_" . date("Y-m-d") . ".log";
-//			$logger->log(array(
-//				date("Y-m-d H:i:s"),
-//				$resp
-//			));
+			var_dump($resp);
+// 			$logger = new LtLogger;
+// 			$logger->conf["log_file"] = rtrim(TOP_SDK_WORK_DIR, '\\/') . '/' . "logs/top_biz_err_" . $this->appkey . "_" . date("Y-m-d") . ".log";
+// 			$logger->log(array(
+// 				date("Y-m-d H:i:s"),
+// 				$resp
+// 			));
 		}
 		return $respObject;
 	}

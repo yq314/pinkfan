@@ -1,0 +1,25 @@
+ {__NOLAYOUT__} 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="robots" content="noindex,nofollow" />
+<title>页面正在跳转中</title>
+</head>
+<body>
+<a href="{$tourl}" id="goto" style="display:none;">无法跳转请点击这里</a>
+<div style="display:none">
+<form id="pf_go" name="pf_go" method="post" action="{$tourl}">
+<input type="submit">
+</form>
+</div>
+<script type="text/javascript">
+try{
+    document.getElementById("goto").click();
+}catch(e){
+    try{ document.getElementById("pf_go").submit(); }
+    catch(e){ document.getElementById("goto").style.display = ''; }
+}
+</script>
+</body>
+</html> 

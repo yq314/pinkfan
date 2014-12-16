@@ -3,7 +3,7 @@
  * TOP API: taobao.wangwang.eservice.groupmember.get request
  * 
  * @author auto create
- * @since 1.0, 2012-04-01 12:30:23
+ * @since 1.0, 2012-12-07 16:40:13
  */
 class WangwangEserviceGroupmemberGetRequest
 {
@@ -40,5 +40,10 @@ class WangwangEserviceGroupmemberGetRequest
 		
 		RequestCheckUtil::checkNotNull($this->managerId,"managerId");
 		RequestCheckUtil::checkMaxLength($this->managerId,128,"managerId");
+	}
+	
+	public function putOtherTextParam($key, $value) {
+		$this->apiParas[$key] = $value;
+		$this->$key = $value;
 	}
 }

@@ -3,7 +3,7 @@
  * TOP API: taobao.items.onsale.get request
  * 
  * @author auto create
- * @since 1.0, 2012-04-01 12:30:23
+ * @since 1.0, 2012-12-07 16:40:13
  */
 class ItemsOnsaleGetRequest
 {
@@ -235,5 +235,10 @@ approve_status,num_iid,title,nick,type,cid,pic_url,num,props,valid_thru,list_tim
 		RequestCheckUtil::checkMinValue($this->cid,0,"cid");
 		RequestCheckUtil::checkNotNull($this->fields,"fields");
 		RequestCheckUtil::checkMaxListSize($this->sellerCids,32,"sellerCids");
+	}
+	
+	public function putOtherTextParam($key, $value) {
+		$this->apiParas[$key] = $value;
+		$this->$key = $value;
 	}
 }

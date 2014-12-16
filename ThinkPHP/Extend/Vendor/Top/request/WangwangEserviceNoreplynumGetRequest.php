@@ -3,7 +3,7 @@
  * TOP API: taobao.wangwang.eservice.noreplynum.get request
  * 
  * @author auto create
- * @since 1.0, 2012-04-01 12:30:23
+ * @since 1.0, 2012-12-07 16:40:13
  */
 class WangwangEserviceNoreplynumGetRequest
 {
@@ -74,5 +74,10 @@ class WangwangEserviceNoreplynumGetRequest
 		RequestCheckUtil::checkNotNull($this->serviceStaffId,"serviceStaffId");
 		RequestCheckUtil::checkMaxLength($this->serviceStaffId,1900,"serviceStaffId");
 		RequestCheckUtil::checkNotNull($this->startDate,"startDate");
+	}
+	
+	public function putOtherTextParam($key, $value) {
+		$this->apiParas[$key] = $value;
+		$this->$key = $value;
 	}
 }

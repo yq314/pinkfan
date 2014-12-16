@@ -3,7 +3,7 @@
  * TOP API: taobao.promotion.limitdiscount.get request
  * 
  * @author auto create
- * @since 1.0, 2012-04-01 12:30:23
+ * @since 1.0, 2012-12-07 16:40:13
  */
 class PromotionLimitdiscountGetRequest
 {
@@ -102,5 +102,10 @@ class PromotionLimitdiscountGetRequest
 	public function check()
 	{
 		
+	}
+	
+	public function putOtherTextParam($key, $value) {
+		$this->apiParas[$key] = $value;
+		$this->$key = $value;
 	}
 }

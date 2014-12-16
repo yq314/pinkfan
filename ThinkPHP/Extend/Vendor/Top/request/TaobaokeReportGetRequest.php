@@ -3,7 +3,7 @@
  * TOP API: taobao.taobaoke.report.get request
  * 
  * @author auto create
- * @since 1.0, 2012-04-01 12:30:23
+ * @since 1.0, 2012-12-07 16:40:13
  */
 class TaobaokeReportGetRequest
 {
@@ -18,7 +18,7 @@ class TaobaokeReportGetRequest
 	private $fields;
 	
 	/** 
-	 * 当前页数.只能获取1-99页数据
+	 * 当前页数.只能获取1-499页数据.
 	 **/
 	private $pageNo;
 	
@@ -88,8 +88,13 @@ class TaobaokeReportGetRequest
 		
 		RequestCheckUtil::checkNotNull($this->date,"date");
 		RequestCheckUtil::checkNotNull($this->fields,"fields");
-		RequestCheckUtil::checkMaxValue($this->pageNo,99,"pageNo");
+		RequestCheckUtil::checkMaxValue($this->pageNo,499,"pageNo");
 		RequestCheckUtil::checkMinValue($this->pageNo,1,"pageNo");
 		RequestCheckUtil::checkMaxValue($this->pageSize,100,"pageSize");
+	}
+	
+	public function putOtherTextParam($key, $value) {
+		$this->apiParas[$key] = $value;
+		$this->$key = $value;
 	}
 }

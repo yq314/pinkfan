@@ -3,7 +3,7 @@
  * TOP API: taobao.traderates.get request
  * 
  * @author auto create
- * @since 1.0, 2012-04-01 12:30:23
+ * @since 1.0, 2012-12-07 16:40:13
  */
 class TraderatesGetRequest
 {
@@ -18,12 +18,17 @@ class TraderatesGetRequest
 	private $fields;
 	
 	/** 
+	 * 商品的数字ID
+	 **/
+	private $numIid;
+	
+	/** 
 	 * 页码。取值范围:大于零的整数; 默认值:1
 	 **/
 	private $pageNo;
 	
 	/** 
-	 * 每页获取条数。默认值40，最小值1，最大值150。相同的查询时间段条件下，最大只能获取总共1500条评价记录。
+	 * 每页获取条数。默认值40，最小值1，最大值150。
 	 **/
 	private $pageSize;
 	
@@ -79,6 +84,17 @@ class TraderatesGetRequest
 	public function getFields()
 	{
 		return $this->fields;
+	}
+
+	public function setNumIid($numIid)
+	{
+		$this->numIid = $numIid;
+		$this->apiParas["num_iid"] = $numIid;
+	}
+
+	public function getNumIid()
+	{
+		return $this->numIid;
 	}
 
 	public function setPageNo($pageNo)
@@ -187,5 +203,10 @@ class TraderatesGetRequest
 		RequestCheckUtil::checkMinValue($this->pageSize,1,"pageSize");
 		RequestCheckUtil::checkNotNull($this->rateType,"rateType");
 		RequestCheckUtil::checkNotNull($this->role,"role");
+	}
+	
+	public function putOtherTextParam($key, $value) {
+		$this->apiParas[$key] = $value;
+		$this->$key = $value;
 	}
 }

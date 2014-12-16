@@ -3,12 +3,12 @@
  * TOP API: taobao.items.list.get request
  * 
  * @author auto create
- * @since 1.0, 2012-04-01 12:30:23
+ * @since 1.0, 2012-12-07 16:40:13
  */
 class ItemsListGetRequest
 {
 	/** 
-	 * 需要返回的商品对象字段。可选值：Item商品结构体中所有字段均可返回(注：目前不能返回props_name)；多个字段用“,”分隔。如果想返回整个子对象，那字段为itemimg，如果是想返回子对象里面的字段，那字段为itemimg.url。
+	 * 需要返回的商品对象字段。可选值：Item商品结构体中所有字段均可返回；多个字段用“,”分隔。如果想返回整个子对象，那字段为itemimg，如果是想返回子对象里面的字段，那字段为itemimg.url。
 	 **/
 	private $fields;
 	
@@ -16,6 +16,11 @@ class ItemsListGetRequest
 	 * 商品数字id列表，多个num_iid用逗号隔开，一次不超过20个。
 	 **/
 	private $numIids;
+	
+	/** 
+	 * 商品数字id列表，多个track_iid用逗号隔开，一次不超过20个。
+	 **/
+	private $trackIids;
 	
 	private $apiParas = array();
 	
@@ -41,6 +46,17 @@ class ItemsListGetRequest
 		return $this->numIids;
 	}
 
+	public function setTrackIids($trackIids)
+	{
+		$this->trackIids = $trackIids;
+		$this->apiParas["track_iids"] = $trackIids;
+	}
+
+	public function getTrackIids()
+	{
+		return $this->trackIids;
+	}
+
 	public function getApiMethodName()
 	{
 		return "taobao.items.list.get";
@@ -55,6 +71,10 @@ class ItemsListGetRequest
 	{
 		
 		RequestCheckUtil::checkNotNull($this->fields,"fields");
-		RequestCheckUtil::checkNotNull($this->numIids,"numIids");
+	}
+	
+	public function putOtherTextParam($key, $value) {
+		$this->apiParas[$key] = $value;
+		$this->$key = $value;
 	}
 }

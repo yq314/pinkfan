@@ -3,7 +3,7 @@
  * TOP API: taobao.logistics.address.add request
  * 
  * @author auto create
- * @since 1.0, 2012-04-01 12:30:23
+ * @since 1.0, 2012-12-07 16:40:13
  */
 class LogisticsAddressAddRequest
 {
@@ -225,5 +225,10 @@ class LogisticsAddressAddRequest
 		RequestCheckUtil::checkMaxLength($this->memo,256,"memo");
 		RequestCheckUtil::checkNotNull($this->province,"province");
 		RequestCheckUtil::checkMaxLength($this->sellerCompany,20,"sellerCompany");
+	}
+	
+	public function putOtherTextParam($key, $value) {
+		$this->apiParas[$key] = $value;
+		$this->$key = $value;
 	}
 }

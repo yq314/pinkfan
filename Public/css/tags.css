@@ -1,0 +1,45 @@
+.page{
+	margin-bottom: 15px;
+}
+.page a{
+	height:18px;
+	line-height:18px;
+	padding: 5px 8px;
+	margin-left: 8px;
+	border: 1px solid #DEDEDE;
+	background: white;
+	overflow: hidden;
+	border-radius: 5px;
+	white-space: nowrap;
+	color: #FF70A7;
+	text-decoration: none;
+}
+.page a:hover{
+	color: #fff;
+	background: #ff70a7;
+}
+.tags{
+    background: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 6px;
+    min-height: 600px;
+}
+.tags ul{
+	margin-bottom: 10px;
+}
+.tags li{
+	display:inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	margin: 3px;
+}
+.tags li a{
+	display:block;
+	padding:3px 5px;
+	text-decoration:none;
+}
+.tags li a:hover{
+	color:#fff;
+	background:#FF70A7;
+}

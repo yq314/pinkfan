@@ -17,12 +17,9 @@
             喜欢：<em class="like-count" data="{$row.like_count}">{$row.like_count}</em>
         </a>
         <i class="addlike">+1</i>
-<!--        <a href="/goods/{$row.id}" title="查看评论" target="_blank" class="fn-right pll_comment_count_tag">
-            评论：<em class="comment-count">0</em>
-        </a>-->
     </div>
     <div class="goods-from fn-clear">
-        <a class="fn-left seller" href="/u/s/id/{$row.shop_id}" title="{$row.shop_name}" target="_blank">{$row.shop_seller}</a>
+        <a class="fn-left seller" href="/shops/{$row.shop_id}" title="{$row.shop_name}" target="_blank">{$row.shop_seller}</a>
         <span class="fn-right shop-level shop-level-{$row.shop_credit}" title="卖家信用">卖家信用</span>
     </div>
 </div>

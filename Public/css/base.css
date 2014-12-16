@@ -210,11 +210,11 @@ a{
     margin-top:4px;
 }
 .header .header-s{
-    margin-top: 20px;
+    margin-top: 16px;
 }
 .header-s input{
     float: left;
-    height: 26px;
+    height: 24px;
     width: 256px;
     font-size: 14px;
     padding: 3px 5px;
@@ -223,10 +223,10 @@ a{
     border-color: #C2C0C0 #CCCACA #D1CFCF;
     border-radius: 4px 0 0 4px;
 }
-.header-s a{
+.header-s a#search_btn{
     float: left;
     display: block;
-    height: 26px;
+    height: 24px;
     width: 26px;
     border: 1px solid;
     border-color: #C2C0C0 #CCCACA #D1CFCF;
@@ -234,6 +234,13 @@ a{
     background: url(../img/s.png) no-repeat 3px 3px #FCFCFC;
     margin-left: -1px;
     padding: 3px;
+}
+.header-s #hot_keywords{
+	padding-top: 2px;
+	clear:both;
+}
+#hot_keywords .keywords{
+	margin-right: 4px;
 }
 
 #container{

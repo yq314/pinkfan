@@ -1,0 +1,12 @@
+<div class="tags">
+    <ul>
+        <foreach name="tags" item="count">
+            <li>
+                <a target="_blank" href="/index/index/q/{$key|urlencode}" title="约{$count}件">{$key}</a>
+            </li>
+        </foreach>
+    </ul>
+    <div class="page fn-clear">
+        {$pagenav}
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="sub-nav fn-clear">
+    <h2>{$shop.name}</h2>
+    <div class="fn-right">
+    在售宝贝 {$count} 件&nbsp;&nbsp;&nbsp;&nbsp;
+    掌柜：<a target="_blank" title="去掌柜店里逛逛" href="/u/s/id/{$shop.id}">{$shop.seller}</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    信用：<div class="shop-level shop-level-{$shop.credit}">卖家信用</div>
+    </div>
+</div>
+<div id="water-fall" class="water-fall fn-clear">
+<foreach name="goods" item="row">
+<div class="goods fn-left">
+    <div class="goods-pic" style="height:{$row.img_height}px;">
+        <a href="/goods/{$row.id}" title="{$row.name}" target="_blank">
+            <img src="__SAE_DOMAIN__{$row.img|getThumbPic=210}" title="{$row.name}" alt="{$row.name}" height="{$row.img_height}" />
+        </a>
+        <span class="price">&yen;{$row.price}</span>
+    </div>
+    <div class="goods-title">
+        {$row.name}
+    </div>
+    <div class="goods-stat goods-from fn-clear">
+        <span class="fn-left like-num like-num-on">
+            喜欢：<em class="like-count" data="{$row.like_count}">{$row.like_count}</em>
+        </span>
+    </div>
+</div>
+</foreach>
+</div>
+<div class="page fn-clear">
+{$pagenav}
+</div>

@@ -3,7 +3,7 @@
  * TOP API: taobao.itemrecommend.items.get request
  * 
  * @author auto create
- * @since 1.0, 2012-04-01 12:30:23
+ * @since 1.0, 2012-12-07 16:40:13
  */
 class ItemrecommendItemsGetRequest
 {
@@ -89,5 +89,10 @@ class ItemrecommendItemsGetRequest
 		RequestCheckUtil::checkNotNull($this->count,"count");
 		RequestCheckUtil::checkNotNull($this->itemId,"itemId");
 		RequestCheckUtil::checkNotNull($this->recommendType,"recommendType");
+	}
+	
+	public function putOtherTextParam($key, $value) {
+		$this->apiParas[$key] = $value;
+		$this->$key = $value;
 	}
 }

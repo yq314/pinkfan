@@ -78,7 +78,7 @@ $(function(){
 
     function loadData(){
         goodsPage.loading = true;
-        $.getJSON('http://pinkfan.sinaapp.com/index/getData/' + goodsPage.query + '&callback=?', {
+        $.getJSON('/index/getData/' + goodsPage.query + '&callback=?', {
             cur_page : goodsPage.curPage,
             sub_page : goodsPage.subPage
         }, function(data){
@@ -99,20 +99,6 @@ $(function(){
             $newElem.animate({opacity:1}, 1500);
             goodsPage.loading = false;
 
-//            //读取pinglun.la数据
-//            var tmp_cc_arr = [];
-//            $newElem.find('.pll_comment_count_tag').each(function(){
-//                tmp_cc_arr.push($(this).attr('href'));
-//            });
-//            var dict_ = {
-//                "page_urls": tmp_cc_arr.join("-.-"),
-//                "sha1": '72cbdb350c66f6a14084dfb5b7c04cda4cd25966'
-//            };
-//
-//            var pll_ = document.createElement('script');
-//            pll_.type = 'text/javascript';
-//            pll_.charset = 'utf-8';
-//            pll_.src = 'http://pinglun.la/manage2/get_comment_count/?' + pfUtil.serialize(dict_); (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(pll_);
         });
     }
 

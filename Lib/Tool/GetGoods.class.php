@@ -4,7 +4,6 @@ vendor('Top.TopClient');
 vendor('Top.RequestCheckUtil');
 vendor('Top.request.ItemGetRequest');
 vendor('Top.request.ShopGetRequest');
-vendor('Top.request.UserGetRequest');
 vendor('Top.request.TaobaokeItemsDetailGetRequest');
 
 class GetGoods{
@@ -88,9 +87,10 @@ class GetGoods{
 
         $tao_ke_pid = C('TAOKE_ID');
         $shop_click_url = '';
+        $seller_credit_score = 1;
         if (!empty($tao_ke_pid)) {
             $req = new TaobaokeItemsDetailGetRequest;
-            $req->setFields("click_url,shop_click_url");
+            $req->setFields("click_url,shop_click_url,seller_credit_score");
             $req->setNumIids($id);
             $req->setPid($tao_ke_pid);
             $resp = $client->execute($req);
@@ -102,6 +102,9 @@ class GetGoods{
 
                 if (!empty($taoke['shop_click_url']))
                     $shop_click_url = $taoke['shop_click_url'];
+                
+                if (!empty($taoke['seller_credit_score']))
+                	$seller_credit_score = $taoke['seller_credit_score'];
             }
         }
 
@@ -120,14 +123,7 @@ class GetGoods{
                 if(!empty($shop_click_url)){
                     $result['shop']['taoke_url'] = $shop_click_url;
                 }
-
-                $req = new UserGetRequest;
-                $req->setFields('seller_credit');
-                $req->setNick($goods['nick']);
-                $resp = $client->execute($req);
-                if(isset($resp->user)){
-                    $result['shop']['credit'] = (int)$resp->user->seller_credit->level;
-                }
+                $result['shop']['credit'] = $seller_credit_score;
             }
         }
 
@@ -175,6 +171,32 @@ class GetGoods{
         );
     }
 
+    public function getComments($id){
+    	$page = file_get_contents('http://item.taobao.com/item.htm?id='.$id);
+    	preg_match('/(seller_num_id|sellerid|userid|sid|userNumId|user_id|seller_id_num)=(\d+)/i', $page, $m);
+    	if(!empty($m) && !empty($m[2])){
+    		$seller_id = $m[2];
+    		$url = 'http://rate.taobao.com/feedRateList.htm?userNumId='.$seller_id.'&auctionNumId='.$id.'&currentPageNum=1';
+    		$rates = file_get_contents($url);
+    		$rates = substr(trim($rates), 1, -1);
+    		$rates = iconv('gbk', 'utf8', $rates);
+    		$rates = json_decode($rates, true);
+    		$comments = array();
+    		if(!empty($rates['comments'])){
+    			foreach ($rates['comments'] as $c){
+    				$comments[] = array(
+    						'content'	=>	$c['content'],
+    						'date'		=>	$c['date'],
+    						'nick'		=>	$c['user']['nick']
+    				);
+    			}
+    			return json_encode($comments);
+    		}else{
+    			return false;
+    		}
+    	}
+    	return false;
+    }
 }
 
 ?>

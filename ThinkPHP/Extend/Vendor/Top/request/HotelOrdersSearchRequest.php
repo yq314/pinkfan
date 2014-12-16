@@ -3,7 +3,7 @@
  * TOP API: taobao.hotel.orders.search request
  * 
  * @author auto create
- * @since 1.0, 2012-04-01 12:30:23
+ * @since 1.0, 2012-12-07 16:40:13
  */
 class HotelOrdersSearchRequest
 {
@@ -264,5 +264,10 @@ oids，tids，hids，rids，gids同时出现时，优先级按此顺序由高到
 	{
 		
 		RequestCheckUtil::checkMaxLength($this->status,1,"status");
+	}
+	
+	public function putOtherTextParam($key, $value) {
+		$this->apiParas[$key] = $value;
+		$this->$key = $value;
 	}
 }

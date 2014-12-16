@@ -183,7 +183,7 @@ $(function(){
 
 var pfUtil = {
     like : function(id, callback){
-        $.getJSON('http://pinkfan.sinaapp.com/like/add?callback=?', {
+        $.getJSON('http://pinkfan.net/like/add?callback=?', {
             'id' : id
         }, function(data){
             if(data.status){
@@ -202,14 +202,4 @@ var pfUtil = {
         }
         return b.join('&')
     }
-}
-
-function pll_init_comment_count_links(a) {
-    $(".pll_comment_count_tag").each(function(){
-        var $this = $(this);
-        var href = $this.attr('href');
-        $this.attr('href', href + '#pinglunla_here');
-        $this.find('em').html(a[href]);
-        $this.removeClass('pll_comment_count_tag');
-    });
 }

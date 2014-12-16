@@ -3,7 +3,7 @@
  * TOP API: taobao.picture.category.add request
  * 
  * @author auto create
- * @since 1.0, 2012-04-01 12:30:23
+ * @since 1.0, 2012-12-07 16:40:13
  */
 class PictureCategoryAddRequest
 {
@@ -55,5 +55,10 @@ class PictureCategoryAddRequest
 	{
 		
 		RequestCheckUtil::checkNotNull($this->pictureCategoryName,"pictureCategoryName");
+	}
+	
+	public function putOtherTextParam($key, $value) {
+		$this->apiParas[$key] = $value;
+		$this->$key = $value;
 	}
 }

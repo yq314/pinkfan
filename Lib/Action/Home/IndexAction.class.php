@@ -20,7 +20,7 @@ class IndexAction extends BaseAction {
                 $cat_name = M('Category')->where('id='.$filter['cat'])->getField('name');
             }
             $this->assign('cat_name', '粉红'.$cat_name);
-            $this->assign('title', '粉红'.$cat_name.' - 粉红控');
+            $this->assign('title', '粉红'.$cat_name.' - '.C('DEFAULT_TITLE'));
         }
 
         $this->assign('filter', $filter);
@@ -44,9 +44,16 @@ class IndexAction extends BaseAction {
         $order = $filter['sort'] ? 'like_count DESC' : 'timeline DESC';
 
         $p = ($cur_page - 1) * 5 + 1;
-        $data = D('GoodsView')->where($condition)->order($order)->limit(16)->page($p)->select();
+        $data = D('GoodsView')->where($condition)->order($order)->
+        	limit(isSpider() ? 80 : 16)->page(isSpider() ? $cur_page : $p)->select();
         $this->assign('data', $data);
         $this->assign('init_data', $this->fetch('waterfall'));
+        
+        if(isSpider()){
+        	import('ORG.Util.Page');
+        	$Page = new Page($count, 80);
+        	$this->assign('pagenav', $Page->show());
+        }
 
         $this->display();
     }
